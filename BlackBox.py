@@ -9,3 +9,6 @@ class BlackBox():
             return 'Пожалуйста, введите число, состоящее ровно из 9 цифр'
         else:
             return 'Пока не знаю, что ответить...'
+
+    def get_greeting_message(self):
+        return 'Здравствуйте!'
