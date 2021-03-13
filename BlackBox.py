@@ -1,17 +1,20 @@
-class BlackBox:
-    __instance = None
+class BlackBoxMeta(type):
 
+    _instances = {}
+
+    def __call__(cls, *args, **kwargs):
+
+        if cls not in cls._instances:
+            instance = super().__call__(*args, **kwargs)
+            cls._instances[cls] = instance
+        return cls._instances[cls]
+
+
+
+class BlackBox(metaclass=BlackBoxMeta):
     def __init__(self):
-        if not BlackBox.__instance:
-            pass
-        else:
-            self.getInstance()
+        pass
 
-    @classmethod
-    def getInstance(cls):
-        if not cls.__instance:
-            cls.__instance = BlackBox()
-        return cls.__instance
 
     def make_transformation(self, user_try):
         if user_try.isdigit() == False:
