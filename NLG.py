@@ -1,4 +1,4 @@
-class ControllerMeta(type):
+class NLGMeta(type):
     _instances = {}
 
     def __call__(cls, *args, **kwargs):
@@ -9,9 +9,6 @@ class ControllerMeta(type):
 
 
 
-class Controller(metaclass=ControllerMeta):
+class NLG(metaclass=NLGMeta):
     def __init__(self):
-        self.users = dict()
-
-    def add_user(self, user_id):
-        self.users[user_id] = 'GREETING'
+        pass

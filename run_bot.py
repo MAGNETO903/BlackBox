@@ -7,6 +7,9 @@ from configuration import API_TOKEN
 
 bot = telebot.TeleBot(API_TOKEN)
 black_box = BlackBox.BlackBox()
+
+black_box2 = BlackBox.BlackBox()
+
 controller = Controller.Controller()
 
 
@@ -19,8 +22,12 @@ def start_message(message):
 
 @bot.message_handler(content_types=['text'])
 def send_message(message):
-    answer = black_box.make_transformation(message)
+    answer = black_box.make_transformation(message.text)
     bot.send_message(message.from_user.id, answer)
 
+if id(black_box) == id(black_box2):
+    print("Singleton работает, обе переменные ссылаются на один объект.")
+else:
+    print("Singleton не работает, переменные ссылаются на разные объекты.")
 
 bot.polling()
