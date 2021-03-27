@@ -11,7 +11,6 @@ black_box = BlackBox.BlackBox()
 black_box2 = BlackBox.BlackBox()
 
 controller = Controller.Controller()
-controller.getInstance()
 
 
 
