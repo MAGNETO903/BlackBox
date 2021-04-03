@@ -12,3 +12,12 @@ class NLUMeta(type):
 class NLU(metaclass=NLUMeta):
     def __init__(self):
         pass
+
+    def validate_message(self, msg):
+        if msg.innumberic():
+            if (len(msg) != 9):
+                return 1
+            else:
+                return 0
+        else:
+            return 2
