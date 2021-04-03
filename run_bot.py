@@ -8,8 +8,6 @@ from configuration import API_TOKEN
 bot = telebot.TeleBot(API_TOKEN)
 black_box = BlackBox.BlackBox()
 
-black_box2 = BlackBox.BlackBox()
-
 controller = Controller.Controller()
 
 
