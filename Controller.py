@@ -1,3 +1,5 @@
+import random
+
 class ControllerMeta(type):
     _instances = {}
 
@@ -14,4 +16,7 @@ class Controller(metaclass=ControllerMeta):
         self.users = dict()
 
     def add_user(self, user_id):
-        self.users[user_id] = 'GREETING'
+        self.users[user_id] = {
+            "status": 'GREETING',
+            "right_answer": [str(random.randint(0, 10)) for i in range(9)]
+        }
