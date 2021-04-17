@@ -65,18 +65,6 @@ class BlackBox(metaclass=BlackBoxMeta):
     def __init__(self):
         self.colors = [LIME, BLACK, GRAY, RED, BLUE, LIGHT_BLUE, GREEN, YELLOW, PINK, ORANGE]
 
-
-    def make_transformation(self, user_try):
-        if user_try.isdigit() == False:
-            return 'Введите пожалуйста 9-значное число'
-        elif len(user_try) != 9:
-            return 'Пожалуйста, введите число, состоящее ровно из 9 цифр'
-        else:
-            return 'Пока не знаю, что ответить...'
-
-    def get_greeting_message(self):
-        return 'Здравствуйте!'
-
     def get_response(self, user_message):
 
         screen = pygame.Surface((500, 500))
