@@ -13,7 +13,7 @@ class NLU(metaclass=NLUMeta):
     def __init__(self):
         pass
 
-    def validate_message(self, msg):
+    def check_message(self, msg):
         if msg.innumberic():
             if (len(msg) != 9):
                 return 1
