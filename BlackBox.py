@@ -66,7 +66,7 @@ class BlackBox(metaclass=BlackBoxMeta):
         self.colors = [LIME, BLACK, GRAY, RED, BLUE, LIGHT_BLUE, GREEN, YELLOW, PINK, ORANGE]
 
     def get_response(self, user_message):
-
+        print('code: ', user_message)
         screen = pygame.Surface((500, 500))
         screen.fill((255, 255, 255))
 
@@ -92,12 +92,13 @@ class BlackBox(metaclass=BlackBoxMeta):
             # полигон
             pygame.draw.polygon(screen, self.colors[color_1], get_polygon(100, 100, verts_num_1))
 
-        angle_step = math.pi*2/dots_num_1
-        for i in range(dots_num_1):
-            dot_x = 100+math.cos(angle_step*i)*25
-            dot_y = 100+math.sin(angle_step*i)*25
+        angle_step = math.pi*2/(dots_num_1+0.1)
+        if verts_num_1 not in [1, 2]:
+            for i in range(dots_num_1):
+                dot_x = 100+math.cos(angle_step*i)*25
+                dot_y = 100+math.sin(angle_step*i)*25
 
-            pygame.draw.circle(screen, inverse_color(self.colors[color_1]), (dot_x, dot_y), 5)
+                pygame.draw.circle(screen, inverse_color(self.colors[color_1]), (dot_x, dot_y), 5)
 
 
         if verts_num_2 in [0, 9]:
@@ -108,12 +109,13 @@ class BlackBox(metaclass=BlackBoxMeta):
         else:
             pygame.draw.polygon(screen, self.colors[color_2], get_polygon(400, 100, verts_num_2))
 
-        angle_step = math.pi * 2 / dots_num_2
-        for i in range(dots_num_2):
-            dot_x = 400 + math.cos(angle_step * i) * 25
-            dot_y = 100 + math.sin(angle_step * i) * 25
+        angle_step = math.pi * 2 / (dots_num_2+0.1)
+        if verts_num_2 not in [1, 2]:
+            for i in range(dots_num_2):
+                dot_x = 400 + math.cos(angle_step * i) * 25
+                dot_y = 100 + math.sin(angle_step * i) * 25
 
-            pygame.draw.circle(screen, inverse_color(self.colors[color_2]), (dot_x, dot_y), 5)
+                pygame.draw.circle(screen, inverse_color(self.colors[color_2]), (dot_x, dot_y), 5)
 
         if verts_num_3 in [0, 9]:
             pygame.draw.circle(screen, self.colors[color_3], (250, 400), 50)
@@ -123,16 +125,17 @@ class BlackBox(metaclass=BlackBoxMeta):
         else:
             pygame.draw.polygon(screen, self.colors[color_3], get_polygon(250, 400, verts_num_3))
 
-        angle_step = math.pi * 2 / dots_num_3
-        for i in range(dots_num_3):
-            dot_x = 250 + math.cos(angle_step * i) * 25
-            dot_y = 400 + math.sin(angle_step * i) * 25
+        angle_step = math.pi * 2 / (dots_num_3+0.1)
+        if verts_num_3 not in [1, 2]:
+            for i in range(dots_num_3):
+                dot_x = 250 + math.cos(angle_step * i) * 25
+                dot_y = 400 + math.sin(angle_step * i) * 25
 
-            pygame.draw.circle(screen, inverse_color(self.colors[color_3]), (dot_x, dot_y), 5)
+                pygame.draw.circle(screen, inverse_color(self.colors[color_3]), (dot_x, dot_y), 5)
 
         pygame.image.save(screen, "pic.png")
         pygame.quit()
-        return open('pic.png')
+        return 'nothing'
 
 #test_black_box = BlackBox()
 

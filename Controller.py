@@ -18,5 +18,5 @@ class Controller(metaclass=ControllerMeta):
     def add_user(self, user_id):
         self.users[user_id] = {
             "status": 'GREETING',
-            "right_answer": [str(random.randint(0, 10)) for i in range(9)]
+            "right_answer": [str(random.randint(0, 9)) for i in range(9)]
         }
